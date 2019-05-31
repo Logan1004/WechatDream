@@ -1,4 +1,4 @@
-package com.example.wechatdream.Controller;
+package com.example.wechatdream.controller;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -23,6 +24,7 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(value = "/loginPage")
+    @ResponseBody
     public HashMap wechatLogin(@RequestParam("wechat_id") String id){
         UserInfo userInfo = userInfoService.findUserByWechatID(id);
         User user = userService.findUserByID(userInfo.getUserId().toString());
@@ -30,6 +32,20 @@ public class UserController {
         hashMap.put("user",user);
         hashMap.put("userInfo",userInfo);
         return hashMap;
+    }
+
+    @RequestMapping(value = "/updateUserInfo")
+    @ResponseBody
+    public String userUpdate(@RequestParam("name") String name,@RequestParam("gender") String gender,
+                             @RequestParam("age") int age,@RequestParam("wechat_id") String id){
+        UserInfo userInfo = userInfoService.findUserByWechatID(id);
+        System.out.println(userInfo.getUserId());
+        userInfo.setAge(age);
+        userInfo.setName(name);
+        userInfo.setGender(gender);
+        System.out.println(userInfo.getName());
+
+        return userInfoService.updateUserInfo(userInfo);
     }
 
 

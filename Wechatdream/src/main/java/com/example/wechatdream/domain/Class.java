@@ -1,8 +1,22 @@
 package com.example.wechatdream.domain;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Class {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Transient
+    private ArrayList<String> label;
+
+    @Transient
+    private String leaderName;
+
     private Integer id;
 
     private Integer schoolId;
@@ -96,5 +110,23 @@ public class Class {
 
     public void setLabels(String labels) {
         this.labels = labels == null ? null : labels.trim();
+    }
+
+    @Transient
+    public ArrayList<String> getLabel() {
+        return label;
+    }
+    @Transient
+    public void setLabel(ArrayList<String> label) {
+        this.label = label;
+    }
+
+    @Transient
+    public String getLeaderName() {
+        return leaderName;
+    }
+    @Transient
+    public void setLeaderName(String leaderName) {
+        this.leaderName = leaderName;
     }
 }

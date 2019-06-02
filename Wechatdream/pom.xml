@@ -17,7 +17,7 @@
     <artifactId>wechatdream</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>wechatdream</name>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <description>Backend project for DreamWeaver Wechat</description>
 
 

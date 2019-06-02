@@ -61,6 +61,12 @@ public class ArticleController {
         return arrayList;
     }
 
+    @RequestMapping("/confirmArticle")
+    @ResponseBody
+    public String confirmArticle(@RequestParam("aid") int aid){
+        articleService.confirmArticle(aid);
+        return "success";
+    }
 
 
 }

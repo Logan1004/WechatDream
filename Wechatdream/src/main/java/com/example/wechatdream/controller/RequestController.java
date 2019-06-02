@@ -62,4 +62,15 @@ public class RequestController {
         return arrayList;
     }
 
+    @RequestMapping("/createRequest")
+    @ResponseBody
+    public String createRequest(@RequestParam("wechat_id") String id, @RequestParam("classId") Integer classId) {
+        int userId = userInfoService.findUserByWechatID(id).getUserId();
+        if (requestService.insertRequest(userId, classId, "Please")) {
+            return "success";
+        } else {
+            return "fail";
+        }
+    }
+
 }

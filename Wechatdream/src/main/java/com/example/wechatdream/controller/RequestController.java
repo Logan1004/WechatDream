@@ -53,7 +53,7 @@ public class RequestController {
                     Class classInfo = classArrayList.get(i);
                     temp.put("user",user);
                     temp.put("userInfo",userInfo);
-                    temp.put("class",classInfo);
+                    temp.put("classInfo",classInfo);
                     temp.put("req",reqs.get(j));
                     arrayList.add(temp);
                 }

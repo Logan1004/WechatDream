@@ -1,5 +1,6 @@
 package com.example.wechatdream.domain;
 
+import javax.persistence.Transient;
 import java.util.Date;
 
 public class Article {
@@ -17,7 +18,18 @@ public class Article {
 
     private String title;
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
     private String type;
+    @Transient
+    private String userName;
+
 
     public Article(Integer id, String content, Date time, Integer userId, Integer status, Integer classId, String title, String type) {
         this.id = id;

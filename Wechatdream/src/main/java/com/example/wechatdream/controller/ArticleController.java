@@ -68,5 +68,23 @@ public class ArticleController {
         return "success";
     }
 
+    @RequestMapping("/getAllArticle")
+    @ResponseBody
+    public ArrayList<HashMap> getPublishedArticles(){
+        ArrayList<HashMap> arrayList = new ArrayList<>();
+        ArrayList<Article> articles=articleService.getPublishedArticle(null, "");
+        for (int j=0;j<articles.size();j++){
+            HashMap temp =  new HashMap();
+            UserInfo userInfo = userInfoService.findUserByID(articles.get(j).getUserId());
+            User user = userService.findUserByID(articles.get(j).getUserId().toString());
+            temp.put("user",user);
+            temp.put("userInfo",userInfo);
+            temp.put("articleInfo",articles.get(j));
+            arrayList.add(temp);
+        }
+        return arrayList;
+    }
+
+
 
 }

@@ -17,6 +17,9 @@ public class Class {
     @Transient
     private String leaderName;
 
+    @Transient
+    private int memberNum;
+
     private Integer id;
 
     private Integer schoolId;
@@ -125,8 +128,21 @@ public class Class {
     public String getLeaderName() {
         return leaderName;
     }
+
+    @Transient
+    public int getMemberNum() {
+        return memberNum;
+    }
+    @Transient
+    public void setMemberNum(int memberNum) {
+        this.memberNum = memberNum;
+    }
+
     @Transient
     public void setLeaderName(String leaderName) {
         this.leaderName = leaderName;
     }
+
+
+
 }

@@ -18,4 +18,10 @@ public interface ClassMapper extends Mapper<Class> {
             "where u.user_id = #{userId} and u.class_id = c.id "})
     ArrayList<Class> selectClassByUserId(@Param("userId") Integer userId);
 
+    @Select({"SELECT name " +
+            "FROM class " +
+            "WHERE id = #{classid} "})
+    String selectClassNameByClassId(@Param("classid") Integer classid);
+
+
 }

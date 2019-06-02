@@ -14,6 +14,14 @@ public interface UserInfoMapper extends Mapper<UserInfo> {
             + " u.wechat_id = #{wechat_id}"})
     UserInfo selectUserByWechatID(String wechat_id);
 
+    @Select({"SELECT "
+            + " u.* "
+            + " FROM "
+            + " user_info u"
+            + " WHERE "
+            + " u.user_id = #{id}"})
+    UserInfo selectUserByID(int id);
+
     @Select({"SELECT u.name FROM user_info u WHERE u.user_id = #{uid}"})
     String selectNameByID(Integer uid);
 }

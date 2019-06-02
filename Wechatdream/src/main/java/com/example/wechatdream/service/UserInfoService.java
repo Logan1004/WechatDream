@@ -22,4 +22,9 @@ public class UserInfoService {
         userInfoMapper.updateByPrimaryKey(userInfo);
         return "Update Successfully";
     }
+
+    public UserInfo findUserByID(int id){
+        UserInfo targetUser = userInfoMapper.selectUserByID(id);
+        return targetUser;
+    }
 }

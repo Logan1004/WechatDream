@@ -1,5 +1,6 @@
 package com.example.wechatdream.domain;
 
+import javax.persistence.Transient;
 import java.util.Date;
 
 public class Request {
@@ -10,6 +11,13 @@ public class Request {
     private Date time;
 
     private String description;
+
+    @Transient
+    private String className;
+    @Transient
+    private String userName;
+
+
 
     public Request(Integer classId, Integer userId, Date time, String description) {
         this.classId = classId;
@@ -52,5 +60,24 @@ public class Request {
 
     public void setDescription(String description) {
         this.description = description == null ? null : description.trim();
+    }
+    @Transient
+    public String getClassName() {
+        return className;
+    }
+
+    @Transient
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
+    @Transient
+    public String getUserName() {
+        return userName;
+    }
+
+    @Transient
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

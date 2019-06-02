@@ -1,5 +1,7 @@
 package com.example.wechatdream.domain;
 
+import javax.persistence.Transient;
+
 public class File {
     private Integer id;
 
@@ -16,6 +18,31 @@ public class File {
     private Integer status;
 
     private Integer classId;
+
+    @Transient
+    private String className;
+    @Transient
+    private String userName;
+
+    @Transient
+    public String getClassName() {
+        return className;
+    }
+
+    @Transient
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
+    @Transient
+    public String getUserName() {
+        return userName;
+    }
+
+    @Transient
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
     public File(Integer id, String info, String name, String path, Integer downloadNum, Integer userId, Integer status, Integer classId) {
         this.id = id;
